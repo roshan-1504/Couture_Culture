@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link rel="stylesheet" href="v1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(160, 147, 134);
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .header {
+            background-color: rgb(32, 28, 24);
+            color: rgb(223, 212, 212);
+            padding: 20px;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .nav {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav a {
+            font-family: fantasy;
+            color: rgb(160, 147, 134);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .hero {
+            min-height: calc(100vh - 130px); /* Adjust based on header height */
+            background-color: rgb(160, 147, 134);
+            position: relative;
+        }
+
+        .form-box {
+            width: 380px;
+            min-height: 500px;
+            height: auto;
+            position: absolute;
+            top: 37%; /* Adjust the top position */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 5px;
+            overflow-x: hidden;
+            border-radius: 10px;
+        }
+
+        .button-box {
+            width: 220px;
+            margin: 35px auto;
+            position: relative;
+            box-shadow: 0 0 2px 2px rgb(32, 28, 24);
+            border-radius: 10px;
+        }
+
+        .toggle-btn {
+            padding: 10px 30px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+        }
+
+        #btn {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: rgb(160, 147, 134);
+            color: white;
+            border-radius: 10px;
+            transition: .5s;
+        }
+
+        .input-group {
+            top: 180px;
+            position: absolute;
+            width: 280px;
+            transition: .5s;
+        }
+
+        .input-field {
+            width: 95%;
+            padding: 8px;
+            margin: 0;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid #999;
+            outline: none;
+            background: transparent;
+        }
+
+        .submit-btn {
+            width: 45%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            background: rgb(160, 147, 134);
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+        }
+        
+
+        .check-box {
+            margin: 30px 10px 30px 0;
+        }
+
+        span {
+            color: #777;
+            font-size: 12px;
+            bottom: 68px;
+            position: absolute;
+        }
+
+        #login{
+            left: 50px;
+        }
+
+        #register{
+            left: 450px;
+            margin-top: 0;
+        }
+
+        #register .submit-btn {
+            margin-bottom: 20px; /* Add some space at the bottom */
+        }
+
+
+        .forgot-password {
+
+            font-weight: 600;
+            display: block; /* Ensure the link is displayed as a block element */
+            text-align: left; /* Align the link to the right */
+            margin-top: 15px; /* Add some space between the password field and the link */
+            color: rgb(32, 28, 24); /* Change color as needed */
+            text-decoration: none; /* Remove underline */
+            font-size: 14px; /* Adjust font size */
+            margin-bottom: 15px;
+            margin-left: 2px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline; /* Underline the link on hover */
+        }
+
+
+        .footer {
+            background-color: rgb(32, 28, 24);
+            color: rgb(223, 212, 212);
+            padding: 30px 0;
+            font-family: Arial, sans-serif;
+            clear: both; /* Ensure the footer clears floats */
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer-section {
+            flex: 1 1 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.contact {
+            flex: 1 1 250px;
+            margin-left: 160px; /* Add margin-left to create space from the left */
+            margin-right: 140px;
+        }
+
+        .footer-section.follow-us h4 {
+            margin-left: 15px;
+        }
+
+        .footer-section.follow-us .social-icons {
+            text-align: left;
+        }
+
+        .footer-section.follow-us .social-icons li {
+            display: inline-block; /* Make list items block-level elements */
+            margin-right: 10px; /* Adjust margin as needed */
+        }
+
+        .footer-section.follow-us .social-icons li img {
+            width: 30px; /* Adjust the width of the icons as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .footer-section p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: rgb(223, 212, 212);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul class="nav">
+            <li><a href="index.html">Couture Culture</a></li>
+            <li style="margin-right: 87%;"></li>
+            <li><a href="home.html">Home</a></li>
+        </ul>
+    </div>
+
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"> </div>
+                <button type="button" class="toggle-btn" onclick="login()">LOGIN</button>
+                <button type="button" class="toggle-btn" onclick="register()">SIGNUP</button>               
+            </div>
+
+            <form id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button type="submit" class="submit-btn">LogIn</button>
+            </form>
+
+            <form id="register" class="input-group">
+                <input type="text" class="input-field" placeholder="Name" required>
+                <input type="email" class="input-field" placeholder="Email" required>
+                <input type="text" class="input-field" placeholder="Phone Number" required>
+                <input type="text" class="input-field" placeholder="Profile Name" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="password" class="input-field" placeholder="Confirm Password" required>
+                <input type="checkbox" class="check-box"><label style="font-size: small;">I agree to the terms and conditions</label>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section contact">
+                <h4>Contact Us</h4>
+                <p>Email:<a href="mailto:info@coutureculture.com" style="color:rgb(160, 147, 134);">info@coutureculture.com</a><br>Phone: 123-456-7890</p>
+            </div>
+
+            <div class="footer-section follow-us">
+                <h4>Follow Us</h4>
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com"><img src="facebook.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.twitter.com"><img src="twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h4>Subscribe to Our Newsletter</h4>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email">
+                    <button type="submit" style="background-color: rgb(160, 147, 134);">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Couture Culture. All rights reserved.
+        </div>
+    </div>
+
+</body>
+<script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+    }
+
+    function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+    }
+
+</script>
+</html>
